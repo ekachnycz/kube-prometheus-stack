@@ -16,7 +16,7 @@ pipeline {
                     mkdir -p $XDG_CONFIG_HOME $XDG_CACHE_HOME
                     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
                     helm repo update
-                    helm upgrade --install prometheus-community/kube-prometheus-stack -f values.yaml
+                    helm upgrade --install my-kube-prometheus-stack prometheus-community/kube-prometheus-stack --version 62.7.0
                     '''
                 }
             }
