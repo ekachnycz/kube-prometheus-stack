@@ -11,6 +11,9 @@ pipeline {
             steps {
                 withKubeConfig(credentialsId: 'microk8s') {
                     sh '''
+                    export XDG_CONFIG_HOME=$PWD/.config
+                    export XDG_CACHE_HOME=$PWD/.cache
+                    mkdir -p $XDG_CONFIG_HOME $XDG_CACHE_HOME
                     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
                     helm repo update
                     helm upgrade --install prometheus-community/kube-prometheus-stack -f values.yaml
