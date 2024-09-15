@@ -1,4 +1,3 @@
 grafana:
-  spec:
-    service: 
+    service:
       type: LoadBalancer
